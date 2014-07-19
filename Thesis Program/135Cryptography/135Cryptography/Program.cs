@@ -10,7 +10,7 @@ namespace _135Cryptography
         static void Main(string[] args)
         {
             Cryptography crypt = new Cryptography();
-            Cryptography.Encrypt("Ace");
+            Console.WriteLine(Cryptography.Encrypt("Ace PasaG"));
             Console.Read();
         }
     }
@@ -102,51 +102,83 @@ namespace _135Cryptography
             }
         }
 
-        static string Generate_Encryt(string file)
+        static string Generate_PM_Encrypt(string file)
         {
-            string output = "";
-            string[] match = new string[0];
+            string Temp = "";
 
-            for (int i = 0, cnt = 0; i < file.Length; i++ )
+            #region Indexing
+            for (int i = 0; i < file.Length; i++)
             {
-                
                 if (file[i] != ' ')
                 {
                     for (char s = 'a'; s <= 'z'; s++)
                     {
                         if (file[i] == s)
                         {
-                            Array.Resize<string>(ref match, match.Length + 1);
-                            match[match.Length - 1] = cnt + "";
+                            Temp += PhaseMain[i] + "";
                             goto OutSide;
                         }
-                        cnt++;
                     }
                     for (char b = 'A'; b <= 'Z'; b++)
                     {
                         if (file[i] == b)
                         {
-                            Array.Resize<string>(ref match, match.Length + 1);
-                            match[match.Length - 1] = cnt + "";
+                            Temp += PhaseMain[i] + "";
                             goto OutSide;
                         }
-                        cnt++;
                     }
                 }
-                else 
+                else
                 {
-                    Array.Resize<string>(ref match, match.Length + 1);
-                    match[match.Length - 1] = cnt + "~";
+                    Temp += "~";
                 }
-                OutSide:
-                cnt = 0;
+            OutSide:
+                continue;
             }
-
-            for (int main = 0, cnt = 0; main < PhaseMain.Length; main++, cnt++)
+            #endregion
+            return Temp;
+        }
+        static string Generate_PE_Encrypt(string temp)
+        {
+            string Original = "";
+            for (int main = 0; main < temp.Length; main++)
             {
-                for (int mainchar = 0; mainchar < PhaseMain[main].ToString().Length; mainchar++)
+                if (temp[main].ToString() != " ")
                 {
-                    output += (PhaseMain[main].ToString()[ran.Next(0, PhaseMain[main].ToString().Length)]).ToString();
+                    int cnt = -1;
+                    for (char s = 'a'; s <= 'z'; s++)
+                    {
+                        cnt++;
+                        if (temp[main] == s)
+                        {
+                            Original += PhaseEnd[cnt][ran.Next(0,PhaseEnd[cnt].Length)].ToString();
+                        }
+                    }
+                    cnt = -1;
+                    cnt += 26;
+                    for (char b = 'A'; b <= 'Z'; b++)
+                    {
+
+                        cnt++;
+                        if (temp[main] == b)
+                        {
+                            Original += PhaseEnd[cnt][0].ToString();
+                        }
+                    }
+                    //cnt = -1;
+                    //cnt += 52;
+                    //for (int num = 0; num <= 9; num++)
+                    //{
+                    //    cnt++;
+                    //    if (temp[main]+"" == num+"")
+                    //    {
+                    //        Original += PhaseEnd[cnt][0].ToString();
+                    //    }
+                    //}
+                }
+                else
+                {
+                    Original += temp[main];
                 }
             }
             return "";
@@ -156,7 +188,7 @@ namespace _135Cryptography
         {
             Generate_PhaseMain(PhraseType.FixedPoint);
             Generate_PhaseEnd(KeyType.Point3);
-            return Generate_Encryt(text);
+            return Generate_PE_Encrypt(Generate_PM_Encrypt(text));
         }
 
         public static string Encrypt(string text, PhraseType Type)
