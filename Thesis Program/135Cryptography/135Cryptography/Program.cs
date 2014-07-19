@@ -10,17 +10,22 @@ namespace _135Cryptography
         static void Main(string[] args)
         {
             Cryptography crypt = new Cryptography();
-            Console.WriteLine(Cryptography.Encrypt("Ace PasaG"));
+
+            for (int i = 0; i < 20; i++)
+            {
+                System.Threading.Thread.Sleep(100);
+                Console.WriteLine(Cryptography.Encrypt("Ace"));
+            }
             Console.Read();
         }
     }
 
     public class Cryptography
     {
-        static Random ran = new Random();
-
+        private static readonly Random ran = new Random();
+        
         public Cryptography() { }
-
+        
         public enum PhraseType
         {
             FixedPoint,
@@ -98,6 +103,44 @@ namespace _135Cryptography
                     new object[] {"@","d"," "},
                     new object[] {"D","8","a"},
                     new object[] {"!","b","1"},
+                    //
+                    new object[] {"Q","X","y"},
+                    new object[] {"?","z","7"},
+                    new object[] {"W","Z","w"},
+                    new object[] {"+","x","C"},
+                    new object[] {"E",":","u"},
+                    new object[] {"-","v","6"},
+                    new object[] {"R",";","s"},
+                    new object[] {")","t","V"},
+                    new object[] {"T","L","q"},
+                    new object[] {"(","r","5"},
+                    new object[] {"Y","K","o"},
+                    new object[] {"*","p","B"},
+                    new object[] {"U","J","m"},
+                    new object[] {"&","n","4"},
+                    new object[] {"I","H","k"},
+                    new object[] {"^","l","N"},
+                    new object[] {"O","0","i"},
+                    new object[] {"%","j","3"},
+                    new object[] {"P","G","g"},
+                    new object[] {"$","h","M"},
+                    new object[] {"A","9","e"},
+                    new object[] {"#","f","2"},
+                    new object[] {"S","F","c"},
+                    new object[] {"@","d"," "},
+                    new object[] {"D","8","a"},
+                    new object[] {"!","b","1"},
+                    //
+                    new object[] {"£","£","£"},
+                    new object[] {"£","£","£"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
+                    new object[] {"!","b","1"},
                 };
             }
         }
@@ -105,7 +148,6 @@ namespace _135Cryptography
         static string Generate_PM_Encrypt(string file)
         {
             string Temp = "";
-
             #region Indexing
             for (int i = 0; i < file.Length; i++)
             {
@@ -158,30 +200,29 @@ namespace _135Cryptography
                     cnt += 26;
                     for (char b = 'A'; b <= 'Z'; b++)
                     {
-
                         cnt++;
                         if (temp[main] == b)
                         {
-                            Original += PhaseEnd[cnt][0].ToString();
+                            Original += PhaseEnd[cnt][ran.Next(0, PhaseEnd[cnt].Length)].ToString();
                         }
                     }
-                    //cnt = -1;
-                    //cnt += 52;
-                    //for (int num = 0; num <= 9; num++)
-                    //{
-                    //    cnt++;
-                    //    if (temp[main]+"" == num+"")
-                    //    {
-                    //        Original += PhaseEnd[cnt][0].ToString();
-                    //    }
-                    //}
+                    cnt = -1;
+                    cnt += 52;
+                    for (int num = 0; num <= 9; num++)
+                    {
+                        cnt++;
+                        if (temp[main] + "" == num + "")
+                        {
+                            Original += PhaseEnd[cnt][ran.Next(0, PhaseEnd[cnt].Length)].ToString();
+                        }
+                    }
                 }
                 else
                 {
                     Original += temp[main];
                 }
             }
-            return "";
+            return Original;
         }
 
         public static string Encrypt(string text)
