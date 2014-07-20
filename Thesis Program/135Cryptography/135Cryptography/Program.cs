@@ -10,14 +10,19 @@ namespace _135Cryptography
         static void Main(string[] args)
         {
             Cryptography crypt = new Cryptography();
-            Cryptography.Encrypt("Ace");
+
+            for (int i = 0; i < 20; i++)
+            {
+                System.Threading.Thread.Sleep(100);
+                Console.WriteLine(Cryptography.Encrypt("Ace"));
+            }
             Console.Read();
         }
     }
 
     public class Cryptography
     {
-        static Random ran = new Random();
+        private static readonly Random ran = new Random();
 
         public Cryptography() { }
 
@@ -42,19 +47,19 @@ namespace _135Cryptography
         {
             if (type == PhraseType.FixedPoint)
             {
-                PhaseMain = new object[] 
+                PhaseMain = new object[]
                 {
-                    "1iAq","6oBa","6pAz","4nBz","4zAa","2aBq",
-                    "6yAz","1uBa","4lAq","6bBq","2xAa","5sBz",
-                    "3tAz","4rBq","1kAa","2vBq","5cAz","5dBa",
-                    "4eAq","3eBa","2jAz","1hBz","1gAa","1fBq",
-                    "3wAa","2qBq",
+                    "1Aq","6oa","pAz","4nB","zAa","2aB",
+                    "6yz","1Ba","4Aq","6bq","2Aa","5sz",
+                    "3tz","4rB","1ka","2vq","50z","5Ba",
+                    "4Aq","3ea","2jA","hBz","1gA","fBq",
+                    "3wA","2Bq",
 
-                    "1i1q","6O2A","6p3Z","4N4z","4z5A","2A6q",
-                    "6Y1Z","1u2a","4L3q","6b4Q","2X5a","5s6Z",
-                    "3t1Z","4R2Q","1k3A","2V4q","5c5Z","5D6A",
-                    "4E1q","3e2a","2J3z","1h4Z","1G5a","1f6q",
-                    "3w1a","2Q2Q"
+                    "i1q","62A","p3Z","4N4","z5A","2A6",
+                    "Y1Z","1ua","4Lq","6bQ","25a","5sZ",
+                    "3tZ","R2Q","1k3","24q","5cZ","56A",
+                    "41q","3e2","2J3","h4Z","1G5","f6q",
+                    "w1a","22Q"
                 };
             }
             else if (type == PhraseType.TwoPoint)
@@ -70,93 +75,161 @@ namespace _135Cryptography
         {
             if (key == KeyType.Point3)
             {
-                PhaseEnd = new object[][] 
+                PhaseEnd = new object[][]
                 {
-                    new object[] {"Q","X","y"},
-                    new object[] {"_","z","7"},
-                    new object[] {"W","Z","w"},
-                    new object[] {"+","x","C"},
-                    new object[] {"E",":","u"},
-                    new object[] {"-","v","6"},
-                    new object[] {"R",";","s"},
-                    new object[] {")","t","V"},
-                    new object[] {"T","L","q"},
-                    new object[] {"(","r","5"},
-                    new object[] {"Y","K","o"},
-                    new object[] {"*","p","B"},
-                    new object[] {"U","J","m"},
-                    new object[] {"&","n","4"},
-                    new object[] {"I","H","k"},
-                    new object[] {"^","l","N"},
-                    new object[] {"O","0","i"},
-                    new object[] {"%","j","3"},
-                    new object[] {"P","G","g"},
-                    new object[] {"$","h","M"},
-                    new object[] {"A","9","e"},
-                    new object[] {"#","f","2"},
-                    new object[] {"S","F","c"},
-                    new object[] {"@","d"," "},
-                    new object[] {"D","8","a"},
-                    new object[] {"!","b","1"},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
+                    new object[] {"","","","",""},
                 };
             }
         }
 
-        static string Generate_Encryt(string file)
+        static string Generate_PM_Encrypt(string file)
         {
-            string output = "";
-            string[] match = new string[0];
-
-            for (int i = 0, cnt = 0; i < file.Length; i++ )
+            string Temp = "";
+            #region Indexing
+            for (int i = 0; i < file.Length; i++)
             {
-                
                 if (file[i] != ' ')
                 {
                     for (char s = 'a'; s <= 'z'; s++)
                     {
                         if (file[i] == s)
                         {
-                            Array.Resize<string>(ref match, match.Length + 1);
-                            match[match.Length - 1] = cnt + "";
+                            Temp += PhaseMain[i] + "";
                             goto OutSide;
                         }
-                        cnt++;
                     }
                     for (char b = 'A'; b <= 'Z'; b++)
                     {
                         if (file[i] == b)
                         {
-                            Array.Resize<string>(ref match, match.Length + 1);
-                            match[match.Length - 1] = cnt + "";
+                            Temp += PhaseMain[i] + "";
                             goto OutSide;
                         }
-                        cnt++;
                     }
                 }
-                else 
+                else
                 {
-                    Array.Resize<string>(ref match, match.Length + 1);
-                    match[match.Length - 1] = cnt + "~";
+                    Temp += "~";
                 }
-                OutSide:
-                cnt = 0;
+            OutSide:
+                continue;
             }
-
-            for (int main = 0, cnt = 0; main < PhaseMain.Length; main++, cnt++)
+            #endregion
+            return Temp;
+        }
+        static string Generate_PE_Encrypt(string temp)
+        {
+            string Original = "";
+            for (int main = 0; main < temp.Length; main++)
             {
-                for (int mainchar = 0; mainchar < PhaseMain[main].ToString().Length; mainchar++)
+                if (temp[main].ToString() != " ")
                 {
-                    output += (PhaseMain[main].ToString()[ran.Next(0, PhaseMain[main].ToString().Length)]).ToString();
+                    int cnt = -1;
+                    for (char s = 'a'; s <= 'z'; s++)
+                    {
+                        cnt++;
+                        if (temp[main] == s)
+                        {
+                            Original += PhaseEnd[cnt][ran.Next(0, PhaseEnd[cnt].Length)].ToString();
+                        }
+                    }
+                    cnt = -1;
+                    cnt += 26;
+                    for (char b = 'A'; b <= 'Z'; b++)
+                    {
+                        cnt++;
+                        if (temp[main] == b)
+                        {
+                            Original += PhaseEnd[cnt][ran.Next(0, PhaseEnd[cnt].Length)].ToString();
+                        }
+                    }
+                    cnt = -1;
+                    cnt += 52;
+                    for (int num = 0; num <= 9; num++)
+                    {
+                        cnt++;
+                        if (temp[main] + "" == num + "")
+                        {
+                            Original += PhaseEnd[cnt][ran.Next(0, PhaseEnd[cnt].Length)].ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    Original += temp[main];
                 }
             }
-            return "";
+            return Original;
         }
 
         public static string Encrypt(string text)
         {
             Generate_PhaseMain(PhraseType.FixedPoint);
             Generate_PhaseEnd(KeyType.Point3);
-            return Generate_Encryt(text);
+            return Generate_PE_Encrypt(Generate_PM_Encrypt(text));
         }
 
         public static string Encrypt(string text, PhraseType Type)
