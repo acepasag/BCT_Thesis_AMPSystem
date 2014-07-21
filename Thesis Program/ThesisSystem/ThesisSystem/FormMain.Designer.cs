@@ -36,22 +36,22 @@
             this.highlighter = new DevComponents.DotNetBar.Validator.Highlighter();
             this.slidePanel1 = new DevComponents.DotNetBar.Controls.SlidePanel();
             this.slidePanel2 = new DevComponents.DotNetBar.Controls.SlidePanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pageSlider = new DevComponents.DotNetBar.Controls.PageSlider();
             this.pageSliderPage0 = new DevComponents.DotNetBar.Controls.PageSliderPage();
-            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pageSliderPage1 = new DevComponents.DotNetBar.Controls.PageSliderPage();
+            this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonX8 = new DevComponents.DotNetBar.ButtonX();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.pageSliderPage1 = new DevComponents.DotNetBar.Controls.PageSliderPage();
+            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
@@ -61,15 +61,16 @@
             this.buttonX6 = new DevComponents.DotNetBar.ButtonX();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX9 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX10 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX11 = new DevComponents.DotNetBar.ButtonX();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_SignIn = new DevComponents.DotNetBar.ButtonX();
+            this.lnk_SignIn = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.slideLogin1 = new ThesisSystem.SlideLogin();
             this.slidePanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.pageSlider.SuspendLayout();
             this.pageSliderPage0.SuspendLayout();
             this.pageSliderPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroShell1
@@ -166,27 +167,17 @@
             // 
             // slidePanel2
             // 
+            this.slidePanel2.BackColor = System.Drawing.Color.White;
             this.slidePanel2.Controls.Add(this.pageSlider);
             this.slidePanel2.Controls.Add(this.panel1);
             this.slidePanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.slidePanel2.ForeColor = System.Drawing.Color.Black;
             this.slidePanel2.Location = new System.Drawing.Point(0, 25);
             this.slidePanel2.Name = "slidePanel2";
             this.slidePanel2.Size = new System.Drawing.Size(905, 78);
             this.slidePanel2.TabIndex = 6;
             this.slidePanel2.Text = "slidePanel2";
             this.slidePanel2.UsesBlockingAnimation = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel1.Controls.Add(this.buttonX3);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(705, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 78);
-            this.panel1.TabIndex = 0;
             // 
             // pageSlider
             // 
@@ -209,7 +200,7 @@
             // 
             // pageSliderPage0
             // 
-            this.pageSliderPage0.BackColor = System.Drawing.Color.Maroon;
+            this.pageSliderPage0.BackColor = System.Drawing.Color.White;
             this.pageSliderPage0.Controls.Add(this.buttonX9);
             this.pageSliderPage0.Controls.Add(this.buttonX1);
             this.pageSliderPage0.Controls.Add(this.buttonX7);
@@ -227,63 +218,105 @@
             this.pageSliderPage0.Size = new System.Drawing.Size(697, 71);
             this.pageSliderPage0.TabIndex = 4;
             // 
-            // buttonX3
+            // buttonX9
             // 
-            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX3.Image = ((System.Drawing.Image)(resources.GetObject("buttonX3.Image")));
-            this.buttonX3.ImageFixedSize = new System.Drawing.Size(65, 60);
-            this.buttonX3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX3.Location = new System.Drawing.Point(16, 11);
-            this.buttonX3.Name = "buttonX3";
-            this.buttonX3.Size = new System.Drawing.Size(65, 60);
-            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX3.TabIndex = 4;
+            this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX9.BackColor = System.Drawing.Color.Transparent;
+            this.buttonX9.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX9.Location = new System.Drawing.Point(645, 36);
+            this.buttonX9.Name = "buttonX9";
+            this.buttonX9.Size = new System.Drawing.Size(49, 29);
+            this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX9.Symbol = "";
+            this.buttonX9.TabIndex = 8;
             // 
-            // label5
+            // buttonX1
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(85, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Click to Sign in";
+            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX1.Image = ((System.Drawing.Image)(resources.GetObject("buttonX1.Image")));
+            this.buttonX1.ImageFixedSize = new System.Drawing.Size(65, 60);
+            this.buttonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonX1.Location = new System.Drawing.Point(429, 7);
+            this.buttonX1.Name = "buttonX1";
+            this.buttonX1.Size = new System.Drawing.Size(65, 60);
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX1.TabIndex = 7;
             // 
-            // label6
+            // buttonX7
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(84, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 19);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Sign in";
+            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX7.BackColor = System.Drawing.Color.Transparent;
+            this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX7.Location = new System.Drawing.Point(645, 7);
+            this.buttonX7.Name = "buttonX7";
+            this.buttonX7.Size = new System.Drawing.Size(49, 29);
+            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX7.Symbol = "";
+            this.buttonX7.TabIndex = 7;
             // 
-            // pageSliderPage1
+            // label1
             // 
-            this.pageSliderPage1.Controls.Add(this.buttonX10);
-            this.pageSliderPage1.Controls.Add(this.buttonX11);
-            this.pageSliderPage1.Controls.Add(this.buttonX2);
-            this.pageSliderPage1.Controls.Add(this.label3);
-            this.pageSliderPage1.Controls.Add(this.buttonX4);
-            this.pageSliderPage1.Controls.Add(this.label4);
-            this.pageSliderPage1.Controls.Add(this.label7);
-            this.pageSliderPage1.Controls.Add(this.label8);
-            this.pageSliderPage1.Controls.Add(this.buttonX6);
-            this.pageSliderPage1.Controls.Add(this.label11);
-            this.pageSliderPage1.Controls.Add(this.label12);
-            this.pageSliderPage1.Location = new System.Drawing.Point(706, 4);
-            this.pageSliderPage1.Name = "pageSliderPage1";
-            this.pageSliderPage1.Size = new System.Drawing.Size(697, 71);
-            this.pageSliderPage1.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(497, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Attendance";
+            // 
+            // buttonX8
+            // 
+            this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonX8.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX8.Image = ((System.Drawing.Image)(resources.GetObject("buttonX8.Image")));
+            this.buttonX8.ImageFixedSize = new System.Drawing.Size(65, 60);
+            this.buttonX8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.buttonX8.Location = new System.Drawing.Point(28, 7);
+            this.buttonX8.Name = "buttonX8";
+            this.buttonX8.Size = new System.Drawing.Size(65, 60);
+            this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX8.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(97, 36);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 17);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Click to Home";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(498, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 17);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Click to Attendace";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(96, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(54, 19);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Home";
             // 
             // buttonX5
             // 
@@ -322,79 +355,51 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Click to Update";
             // 
-            // buttonX1
+            // pageSliderPage1
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX1.Image = ((System.Drawing.Image)(resources.GetObject("buttonX1.Image")));
-            this.buttonX1.ImageFixedSize = new System.Drawing.Size(65, 60);
-            this.buttonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX1.Location = new System.Drawing.Point(429, 7);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(65, 60);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX1.TabIndex = 7;
+            this.pageSliderPage1.BackColor = System.Drawing.Color.White;
+            this.pageSliderPage1.Controls.Add(this.buttonX10);
+            this.pageSliderPage1.Controls.Add(this.buttonX11);
+            this.pageSliderPage1.Controls.Add(this.buttonX2);
+            this.pageSliderPage1.Controls.Add(this.label3);
+            this.pageSliderPage1.Controls.Add(this.buttonX4);
+            this.pageSliderPage1.Controls.Add(this.label4);
+            this.pageSliderPage1.Controls.Add(this.label7);
+            this.pageSliderPage1.Controls.Add(this.label8);
+            this.pageSliderPage1.Controls.Add(this.buttonX6);
+            this.pageSliderPage1.Controls.Add(this.label11);
+            this.pageSliderPage1.Controls.Add(this.label12);
+            this.pageSliderPage1.ForeColor = System.Drawing.Color.Black;
+            this.pageSliderPage1.Location = new System.Drawing.Point(706, 4);
+            this.pageSliderPage1.Name = "pageSliderPage1";
+            this.pageSliderPage1.Size = new System.Drawing.Size(697, 71);
+            this.pageSliderPage1.TabIndex = 5;
             // 
-            // label1
+            // buttonX10
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(497, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Attendance";
+            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX10.BackColor = System.Drawing.Color.Transparent;
+            this.buttonX10.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX10.Location = new System.Drawing.Point(645, 36);
+            this.buttonX10.Name = "buttonX10";
+            this.buttonX10.Size = new System.Drawing.Size(49, 29);
+            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX10.Symbol = "";
+            this.buttonX10.TabIndex = 25;
             // 
-            // label2
+            // buttonX11
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(498, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Click to Attendace";
-            // 
-            // buttonX8
-            // 
-            this.buttonX8.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonX8.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX8.Image = ((System.Drawing.Image)(resources.GetObject("buttonX8.Image")));
-            this.buttonX8.ImageFixedSize = new System.Drawing.Size(65, 60);
-            this.buttonX8.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.buttonX8.Location = new System.Drawing.Point(28, 7);
-            this.buttonX8.Name = "buttonX8";
-            this.buttonX8.Size = new System.Drawing.Size(65, 60);
-            this.buttonX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX8.TabIndex = 13;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(97, 36);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 17);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Click to Home";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(96, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 19);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Home";
+            this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX11.BackColor = System.Drawing.Color.Transparent;
+            this.buttonX11.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.buttonX11.Location = new System.Drawing.Point(645, 7);
+            this.buttonX11.Name = "buttonX11";
+            this.buttonX11.Size = new System.Drawing.Size(49, 29);
+            this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.buttonX11.Symbol = "";
+            this.buttonX11.TabIndex = 24;
             // 
             // buttonX2
             // 
@@ -507,57 +512,81 @@
             this.label12.TabIndex = 19;
             this.label12.Text = "Click to Payroll";
             // 
-            // buttonX7
+            // panel1
             // 
-            this.buttonX7.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX7.BackColor = System.Drawing.Color.Transparent;
-            this.buttonX7.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX7.Location = new System.Drawing.Point(645, 7);
-            this.buttonX7.Name = "buttonX7";
-            this.buttonX7.Size = new System.Drawing.Size(49, 29);
-            this.buttonX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX7.Symbol = "";
-            this.buttonX7.TabIndex = 7;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            this.panel1.Controls.Add(this.btn_SignIn);
+            this.panel1.Controls.Add(this.lnk_SignIn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
+            this.panel1.Location = new System.Drawing.Point(705, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 78);
+            this.panel1.TabIndex = 0;
             // 
-            // buttonX9
+            // btn_SignIn
             // 
-            this.buttonX9.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX9.BackColor = System.Drawing.Color.Transparent;
-            this.buttonX9.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX9.Location = new System.Drawing.Point(645, 36);
-            this.buttonX9.Name = "buttonX9";
-            this.buttonX9.Size = new System.Drawing.Size(49, 29);
-            this.buttonX9.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX9.Symbol = "";
-            this.buttonX9.TabIndex = 8;
+            this.btn_SignIn.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_SignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_SignIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_SignIn.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
+            this.btn_SignIn.Image = ((System.Drawing.Image)(resources.GetObject("btn_SignIn.Image")));
+            this.btn_SignIn.ImageFixedSize = new System.Drawing.Size(65, 60);
+            this.btn_SignIn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btn_SignIn.Location = new System.Drawing.Point(16, 11);
+            this.btn_SignIn.Name = "btn_SignIn";
+            this.btn_SignIn.Size = new System.Drawing.Size(65, 60);
+            this.btn_SignIn.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            this.btn_SignIn.TabIndex = 4;
             // 
-            // buttonX10
+            // lnk_SignIn
             // 
-            this.buttonX10.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX10.BackColor = System.Drawing.Color.Transparent;
-            this.buttonX10.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX10.Location = new System.Drawing.Point(645, 36);
-            this.buttonX10.Name = "buttonX10";
-            this.buttonX10.Size = new System.Drawing.Size(49, 29);
-            this.buttonX10.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX10.Symbol = "";
-            this.buttonX10.TabIndex = 25;
+            this.lnk_SignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnk_SignIn.AutoSize = true;
+            this.lnk_SignIn.BackColor = System.Drawing.Color.White;
+            this.lnk_SignIn.ForeColor = System.Drawing.Color.Black;
+            this.lnk_SignIn.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.lnk_SignIn.LinkColor = System.Drawing.Color.Black;
+            this.lnk_SignIn.Location = new System.Drawing.Point(87, 21);
+            this.lnk_SignIn.Name = "lnk_SignIn";
+            this.lnk_SignIn.Size = new System.Drawing.Size(62, 19);
+            this.lnk_SignIn.TabIndex = 8;
+            this.lnk_SignIn.TabStop = true;
+            this.lnk_SignIn.Text = "Sign In";
             // 
-            // buttonX11
+            // linkLabel2
             // 
-            this.buttonX11.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonX11.BackColor = System.Drawing.Color.Transparent;
-            this.buttonX11.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX11.Location = new System.Drawing.Point(645, 7);
-            this.buttonX11.Name = "buttonX11";
-            this.buttonX11.Size = new System.Drawing.Size(49, 29);
-            this.buttonX11.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX11.Symbol = "";
-            this.buttonX11.TabIndex = 24;
+            this.linkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.White;
+            this.linkLabel2.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.linkLabel2.ForeColor = System.Drawing.Color.Black;
+            this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel2.Location = new System.Drawing.Point(793, 65);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(104, 17);
+            this.linkLabel2.TabIndex = 9;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Click to Sign in";
+            // 
+            // slideLogin1
+            // 
+            this.slideLogin1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.slideLogin1.AnimationTime = 500;
+            this.slideLogin1.AutoSize = true;
+            this.slideLogin1.BackColor = System.Drawing.Color.White;
+            this.slideLogin1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slideLogin1.ForeColor = System.Drawing.Color.Black;
+            this.slideLogin1.Location = new System.Drawing.Point(589, 99);
+            this.slideLogin1.Margin = new System.Windows.Forms.Padding(4);
+            this.slideLogin1.Name = "slideLogin1";
+            this.slideLogin1.Size = new System.Drawing.Size(316, 506);
+            this.slideLogin1.SlideSide = DevComponents.DotNetBar.Controls.eSlideSide.Right;
+            this.slideLogin1.TabIndex = 7;
+            this.slideLogin1.Text = "slideLogin1";
+            this.slideLogin1.UsesBlockingAnimation = false;
             // 
             // FormMain
             // 
@@ -566,6 +595,8 @@
             this.BorderColor = new DevComponents.DotNetBar.Metro.BorderColors(System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue);
             this.BorderThickness = new DevComponents.DotNetBar.Metro.Thickness(-1D, 0D, 0D, 0D);
             this.ClientSize = new System.Drawing.Size(905, 626);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.slideLogin1);
             this.Controls.Add(this.slidePanel2);
             this.Controls.Add(this.slidePanel1);
             this.Controls.Add(this.metroStatusBar1);
@@ -579,13 +610,13 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.slidePanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pageSlider.ResumeLayout(false);
             this.pageSliderPage0.ResumeLayout(false);
             this.pageSliderPage0.PerformLayout();
             this.pageSliderPage1.ResumeLayout(false);
             this.pageSliderPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -602,9 +633,7 @@
         private DevComponents.DotNetBar.Controls.PageSlider pageSlider;
         private DevComponents.DotNetBar.Controls.PageSliderPage pageSliderPage0;
         private System.Windows.Forms.Panel panel1;
-        private DevComponents.DotNetBar.ButtonX buttonX3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private DevComponents.DotNetBar.ButtonX btn_SignIn;
         private DevComponents.DotNetBar.Controls.PageSliderPage pageSliderPage1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private System.Windows.Forms.Label label1;
@@ -628,6 +657,9 @@
         private DevComponents.DotNetBar.ButtonX buttonX7;
         private DevComponents.DotNetBar.ButtonX buttonX10;
         private DevComponents.DotNetBar.ButtonX buttonX11;
+        private SlideLogin slideLogin1;
+        private System.Windows.Forms.LinkLabel lnk_SignIn;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
 

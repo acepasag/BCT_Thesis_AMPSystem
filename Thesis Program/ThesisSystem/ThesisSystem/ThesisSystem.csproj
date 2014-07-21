@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SlideControlPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SlideControlPanel.Designer.cs">
+      <DependentUpon>SlideControlPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlideLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SlideControlPanel.resx">
+      <DependentUpon>SlideControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SlideLogin.resx">
       <DependentUpon>SlideLogin.cs</DependentUpon>
     </EmbeddedResource>

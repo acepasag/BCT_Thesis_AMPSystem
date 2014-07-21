@@ -26,8 +26,8 @@ namespace ThesisSystem
 
         void SlideLogin_Load(object sender, EventArgs e)
         {
-            this.SlideSide = eSlideSide.Left;
-            this.BackColor = Color.CornflowerBlue;
+            this.SlideSide = eSlideSide.Right;
+            Theme(Color.Transparent);
         }
 
         void SlideLogin_Click(object sender, EventArgs e)
@@ -43,6 +43,16 @@ namespace ThesisSystem
         void tb_pwd_GotFocus(object sender, EventArgs e)
         {
             tb_pwd.FocusHighlightEnabled = true;
+        }
+
+        void Theme(Color color)
+        {
+            this.BackColor = Color.CornflowerBlue;
+            labelX1.BackColor = color;
+            labelX2.BackColor = color;
+            labelX3.BackColor = color;
+            reflectionImage1.BackColor = color;
+            link_help.BackColor = color;
         }
     }
 }

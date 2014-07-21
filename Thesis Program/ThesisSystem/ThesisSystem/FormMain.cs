@@ -19,53 +19,55 @@ namespace ThesisSystem
         {
             InitializeComponent();
             this.Load += new EventHandler(FormMain_Load);
-            this.Click += new EventHandler(FormMain_Click);
-            slidePanel1.Click += new EventHandler(slidePanel1_Click);
+            btn_SignIn.Click += new EventHandler(btn_SignIn_Click);
+            lnk_SignIn.Click += new EventHandler(lnk_SignIn_Click);
         }
 
-        void slidePanel1_Click(object sender, EventArgs e)
+        void lnk_SignIn_Click(object sender, EventArgs e)
         {
             
-            slidePanel1.IsOpen = false;
         }
 
-        void FormMain_Click(object sender, EventArgs e)
+        void btn_SignIn_Click(object sender, EventArgs e)
         {
-            //if (slideLogin1.IsOpen == false)
-            //{
-            //    slideLogin1.IsOpen = true;
-            //}
-            //else
-            //{
-            //    slideLogin1.IsOpen = false;
-            //}
+            if (slideLogin1.IsOpen)
+            {
+                slideLogin1.IsOpen = false;
+            }
+            else
+            {
+                slideLogin1.IsOpen = true;
+            }
+            
         }
 
         void FormMain_Load(object sender, EventArgs e)
         {
-            //slideLogin1.Width = this.Width;
-            //slideLogin1.Height = this.Height;
-            //slideLogin1.Location = new Point(0, 0);
-            ChangeSlideSide(eSlideSide.Left);
-            
-            pageSliderPage0.BackColor = Color.CornflowerBlue;
-            slidePanel1.BackColor = Color.CornflowerBlue;
+            Login();
             Theme(Color.CornflowerBlue);
         }
 
         private void ChangeSlideSide(eSlideSide side)
         {
-            //slidelogin1.slideside = side;
-            //slidelogin1.isopen = false;
             slidePanel1.SlideSide = side;
         }
 
-        void Theme(Color color)
+        private void Theme(Color color)
         {
             pageSlider.BackColor = color;
             pageSliderPage1.BackColor = Color.Transparent;
             pageSliderPage0.BackColor = Color.Transparent;
             panel1.BackColor = color;
+            slidePanel1.BackColor = Color.CornflowerBlue;
+            lnk_SignIn.BackColor = color;
+            linkLabel2.BackColor = color;
+        }
+
+        private void Login()
+        {
+            slideLogin1.Hide();
+            slideLogin1.IsOpen = false;
+            slideLogin1.Show();
         }
     }
 }
