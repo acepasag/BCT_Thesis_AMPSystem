@@ -18,6 +18,20 @@ namespace ThesisSystem
         public SlideControlPanel()
         {
             InitializeComponent();
+            this.Load += new EventHandler(SlideControlPanel_Load);
+        }
+
+        void SlideControlPanel_Load(object sender, EventArgs e)
+        {
+            Theme(Color.CornflowerBlue);
+        }
+
+        private void Theme(Color color)
+        {
+            pageSlider1.BackColor = color;
+            pageSliderPage1.BackColor = Color.Transparent;
+            //pageSliderPage2.BackColor = Color.Transparent;
+
         }
     }
 }

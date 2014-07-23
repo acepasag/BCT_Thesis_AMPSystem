@@ -11,6 +11,8 @@ using DevComponents.DotNetBar.Metro;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 
+using System.Ace.Database;
+
 namespace ThesisSystem
 {
     public partial class FormMain : MetroAppForm
@@ -25,19 +27,20 @@ namespace ThesisSystem
 
         void lnk_SignIn_Click(object sender, EventArgs e)
         {
-            
+            ClassDatabase cd = new ClassDatabase();
+            cd.SetConnection();
         }
 
         void btn_SignIn_Click(object sender, EventArgs e)
         {
-            if (slideLogin1.IsOpen)
-            {
-                slideLogin1.IsOpen = false;
-            }
-            else
-            {
-                slideLogin1.IsOpen = true;
-            }
+            //if (slideLogin1.IsOpen)
+            //{
+            //    slideLogin1.IsOpen = false;
+            //}
+            //else
+            //{
+            //    slideLogin1.IsOpen = true;
+            //}
             
         }
 
@@ -49,25 +52,23 @@ namespace ThesisSystem
 
         private void ChangeSlideSide(eSlideSide side)
         {
-            slidePanel1.SlideSide = side;
+            //slidePanel1.SlideSide = side;
         }
 
         private void Theme(Color color)
         {
-            pageSlider.BackColor = color;
+            pageSlider1.BackColor = color;
             pageSliderPage1.BackColor = Color.Transparent;
-            pageSliderPage0.BackColor = Color.Transparent;
-            panel1.BackColor = color;
-            slidePanel1.BackColor = Color.CornflowerBlue;
+            pageSliderPage2.BackColor = Color.Transparent;
             lnk_SignIn.BackColor = color;
             linkLabel2.BackColor = color;
         }
 
         private void Login()
         {
-            slideLogin1.Hide();
-            slideLogin1.IsOpen = false;
-            slideLogin1.Show();
+            //slideLogin1.Hide();
+            //slideLogin1.IsOpen = false;
+            //slideLogin1.Show();
         }
     }
 }

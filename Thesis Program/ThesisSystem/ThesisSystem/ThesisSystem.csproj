@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassDatabase.cs" />
+    <Compile Include="ClassUserManagement.cs" />
     <Compile Include="SlideControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
