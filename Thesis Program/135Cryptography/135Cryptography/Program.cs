@@ -12,7 +12,7 @@ namespace _135Cryptography
             for(int i = 0; i< 20; i++)
             {
                 Cryptography crypt = new Cryptography();
-                string container = Cryptography.Encrypt("abABx");
+                string container = Cryptography.Encrypt("");
                 Console.WriteLine("Encrypted:   "+container);
                 Console.WriteLine("Decypted:    "+Cryptography.Decrypt(container));
             }
@@ -30,14 +30,19 @@ namespace _135Cryptography
             "1Bq","6oa","pAz","4nB","zAa","2aB",
             "6yz","1Ba","4Aq","6bq","2Aa","5sz",
             "3tz","4rB","1ka","2vq","50z","5Ba",
-            "4Aq","3ea","2jA","hBz","1gA","fBq",
+            "4AD","3ea","2jA","hBz","1gA","fBq",
             "3wA","2Bq",
 
             "i1q","62A","p3Z","4N4","z5A","2A6",
-            "Y1Z","1ua","4Lq","6bQ","25a","5sZ",
+            "Y1Z","1ua","4Lq","6bQ","25a","5sQ",
             "3tZ","R2Q","1k3","24q","5cZ","56A",
             "4xq","3e2","2J3","h4Z","1G5","f6q",
-            "w1a","22Q"};
+            "w1a","22Q",
+            
+            "hfH","Us2","j38","c83","N7w","cJ0",
+            "f82","f92","2eD","3Fc"
+
+            };
 
             PhaseEnd = new object[][]
                 {
@@ -124,8 +129,6 @@ namespace _135Cryptography
 
         static object[] PhaseMain = null;
         static object[][] PhaseEnd = null;
-
-
         static string Generate_PM_Encrypt(string file)
         {
             string Temp = "";
@@ -150,16 +153,17 @@ namespace _135Cryptography
                         {
                             Temp += PhaseMain[cnt] + "";
                             goto OutSide;
-                        } cnt++;
+                        } 
+                        cnt++;
                     }
-                    for (int b= 0; b <= 9; b++)
+                    for (int n = 0; n <= 9; n++)
                     {
-                        
-                        if (file[i] == b)
+                        if (file[i]+"" == n+"")
                         {
                             Temp += PhaseMain[cnt] + "";
                             goto OutSide;
-                        } cnt++;
+                        } 
+                        cnt++;
                     }
                 }
                 else
@@ -277,19 +281,49 @@ namespace _135Cryptography
         static string Degenerate_PE_Decrypt(string file) 
         {
             string temp = "", Original = "";
-            int cnt = 0;
+            int maincnt = 0, basedcnt = 0;
             for (int i = 0; i < file.Length; i++)
             {
                 temp += file[i];
-                cnt++;
-                if ((cnt % 3) == 0)
+                maincnt++;
+                if ((maincnt % 3) == 0)
                 {
                     for (int j = 0; j < PhaseMain.Length; j++)
                     {
                         if (temp == PhaseMain[j].ToString())
                         {
-                            Original += PhaseMain[j];
-                            goto Outer;
+                            basedcnt = 0;
+                            for (char l = 'a'; l <= 'z'; l++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += l;
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
+                            basedcnt = 0;
+                            basedcnt += 26;
+                            for (char m = 'A'; m <= 'Z'; m++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += m;
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
+                            basedcnt = 0;
+                            basedcnt += 52;
+                            for (int n = 0; n <= 9; n++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += n + "";
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
                         }
                     }
                 Outer:
@@ -301,7 +335,7 @@ namespace _135Cryptography
 
         public static string Decrypt(string text)
         {
-            return Degenerate_PM_Decrypt(text);
+            return Degenerate_PE_Decrypt(Degenerate_PM_Decrypt(text));
         }
     }
 }

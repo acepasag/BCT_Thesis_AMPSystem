@@ -7,14 +7,13 @@ namespace System.Ace.Security.Cryptography
 {
     public class Cryptography
     {
-        DataTraider dt = new DataTraider();
-
+		DataTraider dt = new DataTraider();
+        ClassFixedPoint ce = new ClassFixedPoint();       
         /// <summary>
         /// Initialized Default key for Main Phase Key
         /// </summary>
         public void SetMainPhase()
         {
-            var ce = new ClassFixedPoint();
             ce.SetMainPhase();
         }
         /// <summary>
@@ -23,15 +22,20 @@ namespace System.Ace.Security.Cryptography
         /// <param name="PhaseMain">Custom Key for Main Phase Key</param>
         public void SetMainPhase(object[] PhaseMain)
         {
-            var ce = new ClassFixedPoint();
-            ce.SetMainPhase(PhaseMain);
+            if (PhaseMain.Length > 0)
+            {
+                ce.SetMainPhase(PhaseMain);
+            }
+            else
+            {
+                throw new ArgumentNullException("999", "Invalid Main Phase Key");
+            }
         }
         /// <summary>
         /// Initialized Default key for End Phase Key
         /// </summary>
         public void SetEndPhase()
         {
-            var ce = new ClassFixedPoint();
             ce.SetMainPhase();
         }
         /// <summary>
@@ -40,8 +44,14 @@ namespace System.Ace.Security.Cryptography
         /// <param name="PhaseEnd">Custom Key for End Phase Key</param>
         public void SetEndPhase(object[][] PhaseEnd)
         {
-            var ce = new ClassFixedPoint();
-            ce.SetMainPhase(PhaseEnd);
+            if (PhaseEnd.Length > 0)
+            {
+                ce.SetMainPhase(PhaseEnd);
+            }
+            else
+            {
+                throw new ArgumentNullException("998", "Invalid Main Phase Key");
+            }
         }
         /// <summary>
         /// Encrypt Message Based on Generated Pseudo-Random Key from MP and EP
@@ -50,28 +60,25 @@ namespace System.Ace.Security.Cryptography
         /// <returns>Return Encrypted Value</returns>
         public string Encrypt(string Text)
         {
-            var ce = new ClassFixedPoint();
             return ce.Encrypt(Text);
         }
         /// <summary>
         /// Decrypt Encrypted Message Based on Generated Pseudo-Random Key from MP and EP
         /// </summary>
         /// <param name="Value">Message to Decrypt</param>
-        /// <returns>Return Decrypted Result</returns>
+        /// <returns>Return Decrypted Message</returns>
         public string Decrypt(string Value)
         {
-            var ce = new ClassFixedPoint();
             return ce.Decrypt(Value);
         }
         /// <summary>
-        /// 
+        /// Decrypt Encrypted Message Based on Generated Pseudo-Random Key from MP and EP
         /// </summary>
-        /// <param name="OriginalValue"></param>
-        /// <param name="BasedValue"></param>
-        /// <returns></returns>
+        /// <param name="OriginalValue">Original Value to be Compare</param>
+        /// <param name="BasedValue">Based Value to Compare with</param>
+        /// <returns>Return Bool Result</returns>
         public bool Decrypt(string OriginalValue,string BasedValue)
         {
-            var ce = new ClassFixedPoint();
             return ce.Decrypt(OriginalValue, BasedValue);
         }
     }
@@ -113,6 +120,12 @@ namespace System.Ace.Security.Cryptography
         object[] PhaseMain = null;
         object[][] PhaseEnd = null;
 
+        public ClassFixedPoint()
+		{
+			SetMainPhase();
+			SetEndPhase();
+		}
+
         public override void SetMainPhase()
         {
             PhaseMain = new object[]
@@ -121,13 +134,13 @@ namespace System.Ace.Security.Cryptography
                 "6yz","1Ba","4Aq","6bq","2Aa","5sz",
                 "3tz","4rB","1ka","2vq","50z","5Ba",
                 "4Aq","3ea","2jA","hBz","1gA","fBq",
-                "3wA","2Bq",
-
-                "i1q","62A","p3Z","4N4","z5A","2A6",
-                "Y1Z","1ua","4Lq","6bQ","25a","5sZ",
-                "3tZ","R2Q","1k3","24q","5cZ","56A",
-                "4xq","3e2","2J3","h4Z","1G5","f6q",
-                "w1a","22Q"
+                "3wA","2Bq","i1q","62A","p3Z","4N4",
+                "z5A","2A6","Y1Z","1ua","4Lq","6bQ",
+                "25a","5sZ","3tZ","R2Q","1k3","24q",
+                "5cZ","56A","4xq","3e2","2J3","h4Z",
+                "1G5","f6q","w1a","22Q","hfH","Us2",
+                "j38","c83","N7w","cJ0","f82","f92",
+                "2eD","3Fc"
             };
         }
         public override void SetMainPhase(object[] PhaseMain)
@@ -212,7 +225,7 @@ namespace System.Ace.Security.Cryptography
         }
         public override string Decrypt(string value)
         {
-            return Decrypt_MP(value);
+            return Decrypt_EP(Decrypt_MP(value));
         }
         public override bool Decrypt(string OriginalValue, string BasedValue)
         {
@@ -367,6 +380,60 @@ namespace System.Ace.Security.Cryptography
                 }
             }
             return temp;
+        }
+        string Decrypt_EP(string value)
+        {
+            string temp = "", Original = "";
+            int maincnt = 0, basedcnt = 0;
+            for (int i = 0; i < value.Length; i++)
+            {
+                temp += value[i];
+                maincnt++;
+                if ((maincnt % 3) == 0)
+                {
+                    for (int j = 0; j < PhaseMain.Length; j++)
+                    {
+                        if (temp == PhaseMain[j].ToString())
+                        {
+                            basedcnt = 0;
+                            for (char l = 'a'; l <= 'z'; l++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += l;
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
+                            basedcnt = 0;
+                            basedcnt += 26;
+                            for (char m = 'A'; m <= 'Z'; m++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += m;
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
+                            basedcnt = 0;
+                            basedcnt += 52;
+                            for (int n = 0; n <= 9; n++)
+                            {
+                                if (basedcnt == j)
+                                {
+                                    Original += n + "";
+                                    goto Outer;
+                                }
+                                basedcnt++;
+                            }
+                        }
+                    }
+                Outer:
+                    temp = "";
+                }
+            }
+            return Original;
         }
     }
 }
