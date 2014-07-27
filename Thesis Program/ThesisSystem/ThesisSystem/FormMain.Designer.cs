@@ -64,10 +64,9 @@
             this.buttonX7 = new DevComponents.DotNetBar.ButtonX();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.itemContainer1 = new DevComponents.DotNetBar.ItemContainer();
             this.metroShell1 = new DevComponents.DotNetBar.Metro.MetroShell();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
-            this.slideLogin1 = new ThesisSystem.SlideLogin();
+            this.GarbageCollector = new System.Windows.Forms.Timer(this.components);
             this.slidePanel2.SuspendLayout();
             this.pageSlider1.SuspendLayout();
             this.pageSliderPage1.SuspendLayout();
@@ -97,8 +96,6 @@
             this.metroStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.metroStatusBar1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroStatusBar1.ForeColor = System.Drawing.Color.Black;
-            this.metroStatusBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.itemContainer1});
             this.metroStatusBar1.Location = new System.Drawing.Point(0, 604);
             this.metroStatusBar1.Name = "metroStatusBar1";
             this.metroStatusBar1.Size = new System.Drawing.Size(905, 22);
@@ -532,18 +529,6 @@
             this.panel1.Size = new System.Drawing.Size(179, 60);
             this.panel1.TabIndex = 25;
             // 
-            // itemContainer1
-            // 
-            // 
-            // 
-            // 
-            this.itemContainer1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.itemContainer1.Name = "itemContainer1";
-            // 
-            // 
-            // 
-            this.itemContainer1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
             // metroShell1
             // 
             this.metroShell1.BackColor = System.Drawing.Color.White;
@@ -590,41 +575,28 @@
             this.metroShell1.TabIndex = 0;
             this.metroShell1.TabStop = true;
             this.metroShell1.TabStripFont = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.metroShell1.Text = " ";
-            this.metroShell1.TitleText = " ";
+            this.metroShell1.Text = "TechHUB Philippines";
+            this.metroShell1.TitleText = "TechHUB Philippines";
             // 
             // buttonItem1
             // 
             this.buttonItem1.Name = "buttonItem1";
             this.buttonItem1.Text = "buttonItem1";
             // 
-            // slideLogin1
+            // GarbageCollector
             // 
-            this.slideLogin1.AnimationTime = 500;
-            this.slideLogin1.AutoSize = true;
-            this.slideLogin1.BackColor = System.Drawing.Color.White;
-            this.slideLogin1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slideLogin1.ForeColor = System.Drawing.Color.Black;
-            this.slideLogin1.Location = new System.Drawing.Point(214, 88);
-            this.slideLogin1.Margin = new System.Windows.Forms.Padding(4);
-            this.slideLogin1.Name = "slideLogin1";
-            this.slideLogin1.Size = new System.Drawing.Size(264, 457);
-            this.slideLogin1.SlideSide = DevComponents.DotNetBar.Controls.eSlideSide.Right;
-            this.slideLogin1.TabIndex = 7;
-            this.slideLogin1.Text = "slideLogin1";
-            this.slideLogin1.UsesBlockingAnimation = false;
+            this.GarbageCollector.Interval = 5000;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BorderColor = new DevComponents.DotNetBar.Metro.BorderColors(System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue, System.Drawing.Color.CornflowerBlue);
             this.BorderThickness = new DevComponents.DotNetBar.Metro.Thickness(-1D, 0D, 0D, 0D);
             this.ClientSize = new System.Drawing.Size(905, 626);
-            this.Controls.Add(this.slideLogin1);
             this.Controls.Add(this.slidePanel2);
             this.Controls.Add(this.metroStatusBar1);
             this.Controls.Add(this.metroShell1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -632,8 +604,8 @@
             this.ModalPanelBoundsExcludeStatusBar = true;
             this.Name = "FormMain";
             this.Padding = new System.Windows.Forms.Padding(0);
-            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "TechHUB Philippines";
             this.slidePanel2.ResumeLayout(false);
             this.pageSlider1.ResumeLayout(false);
             this.pageSliderPage1.ResumeLayout(false);
@@ -643,7 +615,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -683,10 +654,9 @@
         private DevComponents.DotNetBar.ButtonX buttonX9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private DevComponents.DotNetBar.ItemContainer itemContainer1;
-        private SlideLogin slideLogin1;
         private DevComponents.DotNetBar.Metro.MetroShell metroShell1;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private System.Windows.Forms.Timer GarbageCollector;
     }
 }
 

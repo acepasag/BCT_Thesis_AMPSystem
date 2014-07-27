@@ -12,14 +12,19 @@ using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 
 using System.Ace.UserManagement;
+using System.Ace.Database;
 
 namespace ThesisSystem
 {
     public partial class SlideLogin : SlidePanel
     {
-        ClassUserManagement ClassUM = null;
-        public SlideLogin()
+        FormMain FormMain;
+        ClassUserManagement ClassUM;
+
+        public SlideLogin(FormMain FormMain,ClassUserManagement ClassUM)
         {
+            this.FormMain = FormMain;
+            this.ClassUM = ClassUM;
             InitializeComponent();
             tb_pwd.GotFocus += new EventHandler(tb_pwd_GotFocus);
             tb_uid.GotFocus += new EventHandler(tb_uid_GotFocus);
@@ -27,11 +32,12 @@ namespace ThesisSystem
             this.Load += new EventHandler(SlideLogin_Load);
             btn_login.Click += new EventHandler(btn_login_Click);
             link_help.Click += new EventHandler(link_help_Click);
+
         }
 
         void link_help_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
+            MessageBox.Show("You Click for Help");
         }
 
         void btn_login_Click(object sender, EventArgs e)
@@ -39,8 +45,9 @@ namespace ThesisSystem
             try
             {
                 ClassUM = new ClassUserManagement();
+                ClassUM.UserLogin(new UserInformation { Username = tb_uid.Text, Password = tb_pwd.Text });
             }
-            catch (Exception ex) { MessageBox.Show(ex.InnerException+""); }
+            catch (Exception ex) { MessageBox.Show(ex+""); }
         }
 
         void SlideLogin_Load(object sender, EventArgs e)
@@ -66,7 +73,7 @@ namespace ThesisSystem
 
         void Theme(Color color)
         {
-            this.BackColor = Color.CornflowerBlue;
+            this.BackColor = color;
             labelX3.BackColor = color;
             reflectionImage1.BackColor = color;
             link_help.BackColor = color;

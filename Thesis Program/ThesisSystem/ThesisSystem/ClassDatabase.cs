@@ -11,40 +11,69 @@ namespace System.Ace.Database
 {
     public class ClassDatabase
     {
-        DataTable _Table = new DataTable();
+        Connector connect_odbc = new DatabaseConnector();
+        
+        public DatabaseInformation datainfo { get; set; }
 
-        public DataTable Table { get { return _Table; } }
-
-        public void SetConnection()
+        public void SetConnection(DatabaseInformation datainfo)
         {
             var traider = new DataTraider();
-            Connector connect_oledb = new DatabaseConnector();
-            traider.ImportData(connect_oledb);
+            traider.SetConnection(connect_odbc, datainfo);
+        }
+
+        public void SetConnectionOpen()
+        {
+            var traider = new DataTraider();
+            traider.SetConnectionOpen(connect_odbc);
+        }
+
+        public void SetConnectionClose()
+        {
+            var traider = new DataTraider();
+            traider.SetConnectionClose(connect_odbc);
+        }
+
+        public OdbcDataAdapter GetAdapter(string Query)
+        {
+            var traider = new DataTraider();
+            return traider.SetDataAdapter(connect_odbc, "select * from tbltest");
         }
     }
 
     internal class DataTraider
     {
-        public DatabaseInformation datainfo { get; set; }
-
-        public void ImportData(Connector connect)
+        public void SetConnection(Connector connect, DatabaseInformation datainfo)
         {
-            connect.Connect_Set(datainfo);
-            connect.Connect_Open();
+            connect.SetConnection(datainfo);
+        }
+
+        public void SetConnectionOpen(Connector connect)
+        {
+            connect.SetConnectionOpen();
+        }
+
+        public void SetConnectionClose(Connector connect)
+        {
+            connect.SetConnectionClose();
+        }
+
+        public OdbcDataAdapter SetDataAdapter(Connector connect, string Query)
+        {
+            return connect.SetConnectionAdapter(Query);
         }
     }
 
-    internal struct DatabaseInformation
+    public struct DatabaseInformation
     {
         public string Server, Port, Database, Username, Password;
     }
 
     internal abstract class Connector
     {
-        public abstract void Connect_Set(DatabaseInformation datainfo);
-        public abstract void Connect_Open();
-        public abstract void Connect_Close();
-        public abstract void Connect_Select(string Query);
+        public abstract void SetConnection(DatabaseInformation datainfo);
+        public abstract void SetConnectionOpen();
+        public abstract void SetConnectionClose();
+        public abstract OdbcDataAdapter SetConnectionAdapter(string Query);
     }
 
     internal class DatabaseConnector : Connector
@@ -53,7 +82,7 @@ namespace System.Ace.Database
         OdbcDataAdapter OdbcDataAdapter = null;
         OdbcCommand OdbcCommand = null;
 
-        public override void Connect_Set(DatabaseInformation datainfo)
+        public override void SetConnection(DatabaseInformation datainfo)
         {
             if (datainfo.Database != null &&
                 datainfo.Password != null &&
@@ -62,30 +91,36 @@ namespace System.Ace.Database
                 datainfo.Username != null)
             {
                 OdbcConnection = new OdbcConnection();
-                OdbcConnection.ConnectionString = string.Format("Driver={MySQL ODBC 5.2 UNICODE Driver};Server={0};Port={1};Database={2};User={3};Password={4};", datainfo.Server, datainfo.Port, datainfo.Server, datainfo.Username, datainfo.Password);
+                OdbcConnection.ConnectionString = "Driver={MySQL ODBC 5.2 UNICODE Driver};Server=db4free.net;Port=3306;Database=acepasag;User=acepasag;Password=acepasag;";
             }
             else
             {
                 throw new Exception("Invalid Database Information");
             }
         }
-        public override void Connect_Open()
+
+        public override void SetConnectionOpen()
         {
             if (OdbcConnection.State == ConnectionState.Open)
             {
                 OdbcConnection.Close();
             }
             OdbcConnection.Open();
+            MessageBox.Show("Open");
         }
-        public override void Connect_Close()
+
+        public override void SetConnectionClose()
         {
             OdbcConnection.Close();
         }
-        public override void Connect_Select(string Query)
+
+        public override OdbcDataAdapter SetConnectionAdapter(string Query)
         {
             OdbcDataAdapter = new OdbcDataAdapter();
             OdbcDataAdapter.SelectCommand = new OdbcCommand(Query, OdbcConnection);
-
+            return OdbcDataAdapter;
         }
+
+
     }
 }

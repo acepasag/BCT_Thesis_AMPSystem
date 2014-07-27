@@ -23,6 +23,7 @@ namespace ThesisSystem
 
         void SlideControlPanel_Load(object sender, EventArgs e)
         {
+            this.SlideSide = eSlideSide.Left;
             Theme(Color.CornflowerBlue);
         }
 
@@ -30,8 +31,8 @@ namespace ThesisSystem
         {
             pageSlider1.BackColor = color;
             pageSliderPage1.BackColor = Color.Transparent;
-            //pageSliderPage2.BackColor = Color.Transparent;
-
+            slidePanel1.BackColor = color;
+            this.BackColor = color;
         }
     }
 }
