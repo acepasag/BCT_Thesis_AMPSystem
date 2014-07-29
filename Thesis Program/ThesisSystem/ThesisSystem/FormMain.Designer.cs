@@ -67,6 +67,7 @@
             this.metroShell1 = new DevComponents.DotNetBar.Metro.MetroShell();
             this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.GarbageCollector = new System.Windows.Forms.Timer(this.components);
+            this.labelItem1 = new DevComponents.DotNetBar.LabelItem();
             this.slidePanel2.SuspendLayout();
             this.pageSlider1.SuspendLayout();
             this.pageSliderPage1.SuspendLayout();
@@ -96,9 +97,11 @@
             this.metroStatusBar1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.metroStatusBar1.Font = new System.Drawing.Font("Segoe UI", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.metroStatusBar1.ForeColor = System.Drawing.Color.Black;
-            this.metroStatusBar1.Location = new System.Drawing.Point(0, 604);
+            this.metroStatusBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.labelItem1});
+            this.metroStatusBar1.Location = new System.Drawing.Point(0, 599);
             this.metroStatusBar1.Name = "metroStatusBar1";
-            this.metroStatusBar1.Size = new System.Drawing.Size(905, 22);
+            this.metroStatusBar1.Size = new System.Drawing.Size(905, 27);
             this.metroStatusBar1.TabIndex = 3;
             this.metroStatusBar1.Text = " ";
             // 
@@ -125,8 +128,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(365, 3);
+            this.label1.Location = new System.Drawing.Point(365, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 19);
             this.label1.TabIndex = 6;
@@ -174,8 +178,9 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(54, 3);
+            this.label15.Location = new System.Drawing.Point(54, 7);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(54, 19);
             this.label15.TabIndex = 12;
@@ -199,8 +204,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(206, 3);
+            this.label9.Location = new System.Drawing.Point(206, 7);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 19);
             this.label9.TabIndex = 6;
@@ -236,8 +242,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(212, 3);
+            this.label3.Location = new System.Drawing.Point(212, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 19);
             this.label3.TabIndex = 15;
@@ -285,8 +292,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(539, 3);
+            this.label8.Location = new System.Drawing.Point(539, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 19);
             this.label8.TabIndex = 21;
@@ -310,8 +318,9 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(54, 3);
+            this.label11.Location = new System.Drawing.Point(54, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 19);
             this.label11.TabIndex = 16;
@@ -350,6 +359,7 @@
             this.lnk_SignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lnk_SignIn.AutoSize = true;
             this.lnk_SignIn.BackColor = System.Drawing.Color.White;
+            this.lnk_SignIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnk_SignIn.ForeColor = System.Drawing.Color.Black;
             this.lnk_SignIn.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.lnk_SignIn.LinkColor = System.Drawing.Color.Black;
@@ -435,14 +445,13 @@
             this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
-            this.buttonX3.Image = ((System.Drawing.Image)(resources.GetObject("buttonX3.Image")));
             this.buttonX3.ImageFixedSize = new System.Drawing.Size(40, 40);
             this.buttonX3.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.buttonX3.Location = new System.Drawing.Point(675, 3);
             this.buttonX3.Name = "buttonX3";
             this.buttonX3.Size = new System.Drawing.Size(40, 40);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-            this.buttonX3.Symbol = "";
+            this.buttonX3.Symbol = "";
             this.buttonX3.TabIndex = 21;
             // 
             // pageSliderPage2
@@ -482,8 +491,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(413, 3);
+            this.label5.Location = new System.Drawing.Point(413, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 19);
             this.label5.TabIndex = 21;
@@ -587,6 +597,18 @@
             // 
             this.GarbageCollector.Interval = 5000;
             // 
+            // labelItem1
+            // 
+            this.labelItem1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelItem1.ForeColor = System.Drawing.Color.Black;
+            this.labelItem1.Name = "labelItem1";
+            this.labelItem1.ShowSubItems = false;
+            this.labelItem1.Stretch = true;
+            this.labelItem1.Symbol = "";
+            this.labelItem1.SymbolColor = System.Drawing.Color.Black;
+            this.labelItem1.Text = "Total Hour: HH : MM : SS";
+            this.labelItem1.TextLineAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -597,7 +619,7 @@
             this.Controls.Add(this.metroStatusBar1);
             this.Controls.Add(this.metroShell1);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
@@ -657,6 +679,7 @@
         private DevComponents.DotNetBar.Metro.MetroShell metroShell1;
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private System.Windows.Forms.Timer GarbageCollector;
+        private DevComponents.DotNetBar.LabelItem labelItem1;
     }
 }
 

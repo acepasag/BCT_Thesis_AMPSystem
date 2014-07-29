@@ -14,7 +14,7 @@ namespace System.Ace.Security.Cryptography
         /// </summary>
         public void SetMainPhase()
         {
-            ce.SetMainPhase();
+            dt.SetMainPhase(ce);
         }
         /// <summary>
         /// Initialized Custom key for Main Phase Key
@@ -24,7 +24,7 @@ namespace System.Ace.Security.Cryptography
         {
             if (PhaseMain.Length > 0)
             {
-                ce.SetMainPhase(PhaseMain);
+                dt.SetMainPhase(ce, PhaseMain);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace System.Ace.Security.Cryptography
         /// </summary>
         public void SetEndPhase()
         {
-            ce.SetMainPhase();
+            dt.SetEndPhase(ce);
         }
         /// <summary>
         /// Initialized Custom key for End Phase Key
@@ -46,7 +46,7 @@ namespace System.Ace.Security.Cryptography
         {
             if (PhaseEnd.Length > 0)
             {
-                ce.SetMainPhase(PhaseEnd);
+                dt.SetEndPhase(ce, PhaseEnd);
             }
             else
             {
@@ -60,7 +60,7 @@ namespace System.Ace.Security.Cryptography
         /// <returns>Return Encrypted Value</returns>
         public string Encrypt(string Text)
         {
-            return ce.Encrypt(Text);
+            return dt.Encrypt(ce, Text);
         }
         /// <summary>
         /// Decrypt Encrypted Message Based on Generated Pseudo-Random Key from MP and EP
@@ -69,7 +69,7 @@ namespace System.Ace.Security.Cryptography
         /// <returns>Return Decrypted Message</returns>
         public string Decrypt(string Value)
         {
-            return ce.Decrypt(Value);
+            return dt.Decrypt(ce, Value);
         }
         /// <summary>
         /// Decrypt Encrypted Message Based on Generated Pseudo-Random Key from MP and EP
@@ -79,7 +79,7 @@ namespace System.Ace.Security.Cryptography
         /// <returns>Return Bool Result</returns>
         public bool Decrypt(string OriginalValue,string BasedValue)
         {
-            return ce.Decrypt(OriginalValue, BasedValue);
+            return dt.Decrypt(ce, OriginalValue, BasedValue);
         }
     }
 
@@ -100,6 +100,18 @@ namespace System.Ace.Security.Cryptography
         public void SetEndPhase(Connector connect, object[][] PhaseEnd)
         {
             connect.SetEndPhase(PhaseEnd);
+        }
+        public string Encrypt(Connector connect,string value) 
+        {
+            return connect.Encrypt(value);
+        }
+        public string Decrypt(Connector connect,string value) 
+        {
+            return connect.Decrypt(value);
+        }
+        public bool Decrypt(Connector connect, string OriginalValue, string BasedValue)
+        {
+            return connect.Decrypt(OriginalValue, BasedValue);
         }
     }
 

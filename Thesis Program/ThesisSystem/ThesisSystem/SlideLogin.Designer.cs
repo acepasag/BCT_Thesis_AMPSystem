@@ -36,6 +36,7 @@
             this.reflectionImage1 = new DevComponents.DotNetBar.Controls.ReflectionImage();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btn_login = new DevComponents.DotNetBar.ButtonX();
+            this.circularProgress1 = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.SuspendLayout();
             // 
             // tb_uid
@@ -50,9 +51,9 @@
             this.tb_uid.ForeColor = System.Drawing.Color.Black;
             this.highlighter.SetHighlightColor(this.tb_uid, DevComponents.DotNetBar.Validator.eHighlightColor.Red);
             this.highlighter.SetHighlightOnFocus(this.tb_uid, true);
-            this.tb_uid.Location = new System.Drawing.Point(12, 311);
+            this.tb_uid.Location = new System.Drawing.Point(20, 295);
             this.tb_uid.Name = "tb_uid";
-            this.tb_uid.Size = new System.Drawing.Size(245, 26);
+            this.tb_uid.Size = new System.Drawing.Size(220, 26);
             this.tb_uid.TabIndex = 14;
             this.tb_uid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_uid.WatermarkColor = System.Drawing.Color.DimGray;
@@ -70,9 +71,9 @@
             this.tb_pwd.ForeColor = System.Drawing.Color.Black;
             this.highlighter.SetHighlightColor(this.tb_pwd, DevComponents.DotNetBar.Validator.eHighlightColor.Red);
             this.highlighter.SetHighlightOnFocus(this.tb_pwd, true);
-            this.tb_pwd.Location = new System.Drawing.Point(12, 343);
+            this.tb_pwd.Location = new System.Drawing.Point(20, 325);
             this.tb_pwd.Name = "tb_pwd";
-            this.tb_pwd.Size = new System.Drawing.Size(245, 26);
+            this.tb_pwd.Size = new System.Drawing.Size(220, 26);
             this.tb_pwd.TabIndex = 15;
             this.tb_pwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_pwd.UseSystemPasswordChar = true;
@@ -85,7 +86,7 @@
             this.link_help.AutoSize = true;
             this.link_help.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.link_help.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.link_help.Location = new System.Drawing.Point(182, 441);
+            this.link_help.Location = new System.Drawing.Point(173, 418);
             this.link_help.Name = "link_help";
             this.link_help.Size = new System.Drawing.Size(75, 16);
             this.link_help.TabIndex = 18;
@@ -106,9 +107,9 @@
             this.reflectionImage1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.reflectionImage1.BackgroundStyle.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
             this.reflectionImage1.Image = ((System.Drawing.Image)(resources.GetObject("reflectionImage1.Image")));
-            this.reflectionImage1.Location = new System.Drawing.Point(12, 62);
+            this.reflectionImage1.Location = new System.Drawing.Point(20, 59);
             this.reflectionImage1.Name = "reflectionImage1";
-            this.reflectionImage1.Size = new System.Drawing.Size(245, 288);
+            this.reflectionImage1.Size = new System.Drawing.Size(220, 273);
             this.reflectionImage1.TabIndex = 19;
             // 
             // labelX3
@@ -120,9 +121,9 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX3.ForeColor = System.Drawing.Color.White;
-            this.labelX3.Location = new System.Drawing.Point(12, 62);
+            this.labelX3.Location = new System.Drawing.Point(20, 46);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(245, 43);
+            this.labelX3.Size = new System.Drawing.Size(220, 41);
             this.labelX3.TabIndex = 20;
             this.labelX3.Text = "Sign In";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -135,31 +136,45 @@
             this.btn_login.ColorTable = DevComponents.DotNetBar.eButtonColor.Blue;
             this.btn_login.ImageFixedSize = new System.Drawing.Size(40, 40);
             this.btn_login.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btn_login.Location = new System.Drawing.Point(217, 375);
+            this.btn_login.Location = new System.Drawing.Point(204, 355);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(40, 40);
+            this.btn_login.Size = new System.Drawing.Size(36, 38);
             this.btn_login.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
             this.btn_login.Symbol = "";
             this.btn_login.SymbolSize = 35F;
             this.btn_login.TabIndex = 21;
             // 
+            // circularProgress1
+            // 
+            this.circularProgress1.AnimationSpeed = 50;
+            // 
+            // 
+            // 
+            this.circularProgress1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.circularProgress1.Location = new System.Drawing.Point(196, 355);
+            this.circularProgress1.Name = "circularProgress1";
+            this.circularProgress1.Size = new System.Drawing.Size(45, 38);
+            this.circularProgress1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
+            this.circularProgress1.TabIndex = 22;
+            // 
             // SlideLogin
             // 
             this.AnimationTime = 500;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.Controls.Add(this.circularProgress1);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.link_help);
             this.Controls.Add(this.tb_uid);
             this.Controls.Add(this.tb_pwd);
             this.Controls.Add(this.reflectionImage1);
-            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SlideLogin";
-            this.Size = new System.Drawing.Size(268, 519);
+            this.Size = new System.Drawing.Size(258, 492);
             this.SlideSide = DevComponents.DotNetBar.Controls.eSlideSide.Right;
             this.Text = " ";
             this.ResumeLayout(false);
@@ -176,6 +191,7 @@
         private DevComponents.DotNetBar.Controls.ReflectionImage reflectionImage1;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.ButtonX btn_login;
+        private DevComponents.DotNetBar.Controls.CircularProgress circularProgress1;
 
 
     }

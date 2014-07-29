@@ -34,7 +34,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=11.0.0.0, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="135Cryptography, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\135Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Design">
+      <HintPath>bin\Debug\Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Design.Instrumentation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=bc4a9d761ea44ef0, processorArchitecture=MSIL">
+      <HintPath>bin\Debug\Design.Instrumentation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Design.Keyboard">
+      <HintPath>bin\Debug\Design.Keyboard.dll</HintPath>
+    </Reference>
+    <Reference Include="Design.Schedule">
+      <HintPath>bin\Debug\Design.Schedule.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +65,12 @@
   <ItemGroup>
     <Compile Include="ClassDatabase.cs" />
     <Compile Include="ClassUserManagement.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlideControlPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +97,9 @@
     <Compile Include="StartScreen.Designer.cs">
       <DependentUpon>StartScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SlideControlPanel.resx">
       <DependentUpon>SlideControlPanel.cs</DependentUpon>
     </EmbeddedResource>

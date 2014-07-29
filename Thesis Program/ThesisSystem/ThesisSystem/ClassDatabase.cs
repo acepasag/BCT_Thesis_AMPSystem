@@ -12,7 +12,7 @@ namespace System.Ace.Database
     public class ClassDatabase
     {
         Connector connect_odbc = new DatabaseConnector();
-        
+
         public DatabaseInformation datainfo { get; set; }
 
         public void SetConnection(DatabaseInformation datainfo)
@@ -36,7 +36,7 @@ namespace System.Ace.Database
         public OdbcDataAdapter GetAdapter(string Query)
         {
             var traider = new DataTraider();
-            return traider.SetDataAdapter(connect_odbc, "select * from tbltest");
+            return traider.SetDataAdapter(connect_odbc, Query);
         }
     }
 
@@ -80,7 +80,7 @@ namespace System.Ace.Database
     {
         OdbcConnection OdbcConnection = null;
         OdbcDataAdapter OdbcDataAdapter = null;
-        OdbcCommand OdbcCommand = null;
+        //OdbcCommand OdbcCommand = null;
 
         public override void SetConnection(DatabaseInformation datainfo)
         {
@@ -101,12 +101,14 @@ namespace System.Ace.Database
 
         public override void SetConnectionOpen()
         {
-            if (OdbcConnection.State == ConnectionState.Open)
+            try
             {
                 OdbcConnection.Close();
             }
-            OdbcConnection.Open();
-            MessageBox.Show("Open");
+            finally
+            {
+                OdbcConnection.Open();
+            }
         }
 
         public override void SetConnectionClose()
@@ -120,7 +122,5 @@ namespace System.Ace.Database
             OdbcDataAdapter.SelectCommand = new OdbcCommand(Query, OdbcConnection);
             return OdbcDataAdapter;
         }
-
-
     }
 }

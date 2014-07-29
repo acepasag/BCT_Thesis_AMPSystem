@@ -7,100 +7,119 @@ using System.Data.OleDb;
 using System.Runtime.Remoting.Messaging;
 using System.Data.Odbc;
 using System.Windows.Forms;
+
 using System.Ace.Database;
+using System.Ace.Security.Cryptography;
 
 namespace System.Ace.UserManagement
 {
     public struct UserInformation
     {
-        public string Username, Password, Firstname, MiddleName, LastName, EmailAddress;
+        public string Username, Password, Firstname, MiddleName, LastName, EmailAddress,AccessType;
     }
 
     public class ClassUserManagement
     {
         Connector connect = new UserLogin();
-        public event Action<object> Callback_Login;
-        public event Action<DataTable, object> Callback_UserList;
 
-        public ClassUserManagement()
-        {
-            //ClassDatabase cd = new ClassDatabase();
-            //cd.SetConnection(new DatabaseInformation
-            //{
-            //    Server = "db4free.net",
-            //    Port = "3306",
-            //    Database = "acepasag",
-            //    Username = "acepasag",
-            //    Password = "acepasag"
-            //});
-        }
-
+        public event Action<object, string> Callback_Login;
+        delegate void AsyncLogin(UserInformation userinfo);
         public void UserLogin(UserInformation userinfo)
         {
-            var dr = new DataTraider();
-            dr.Login(connect, userinfo, Callback_Login);
-        }
-    }
-
-    internal class DataTraider
-    {
-        public void Login(Connector connect, UserInformation userinfo, Action<object> CallBack)
-        {
-            connect.Login(userinfo.Username, userinfo.Password, CallBack);
-        }
-    }
-
-    internal abstract class Connector
-    {
-        public abstract void Login(string username, string password, Action<object> CallBack);
-    }
-
-    internal class UserLogin : Connector
-    {
-		ClassDatabase cd = new ClassDatabase();
-		OdbcDataAdapter adapter = new OdbcDataAdapter();
-		DataTable Table = new DataTable();
-
-        delegate void AsyncLogin(string username, string password, Action<object> CallBack);
-
-        public override void Login(string username, string password, Action<object> CallBack)
-        {
-            AsyncLogin a = (u, p, cb) =>
+            AsyncLogin a = (ui) =>
                 {
-                    Table = new DataTable();
-                    cd = new ClassDatabase();
-                    cd.SetConnection(new DatabaseInformation
-                    {
-                        Server = "db4free.net",
-                        Port = "3306",
-                        Database = "acepasag",
-                        Username = "acepasag",
-                        Password = "acepasag"
-                    });
-                    cd.SetConnectionOpen();
-                    adapter = new OdbcDataAdapter();
-                    adapter = cd.GetAdapter("select * from tblUserCredentials");
-                    cd.SetConnectionClose();
-                    adapter.Fill(Table);
-
-                    foreach (DataRow value in Table.Rows)
-                    {
-                        if (username == value[1].ToString() && password == value[2].ToString())
-                        {
-                            CallBack(true);
-                        }
-                    }
+                    var dr = new DataTraider();
+                    Callback_Login(dr.Login(connect, userinfo), dr.AccessType(connect));
                 };
             AsyncCallback ac = (iar) =>
                 {
                     a = (AsyncLogin)((AsyncResult)iar).AsyncDelegate;
                     a.EndInvoke(iar);
-                    if (CallBack != null) 
+                    if (Callback_Login != null)
                     {
-                        CallBack(null);
+                        Callback_Login(null, null);
                     }
                 };
-            IAsyncResult ar = a.BeginInvoke(username, password,CallBack, ac, null);
+            IAsyncResult ar = a.BeginInvoke(userinfo, ac, null);
+        }
+    }
+
+    internal class DataTraider
+    {
+        public bool Login(Connector connect, UserInformation userinfo)
+        {
+            return connect.Login(userinfo);
+        }
+
+        public string AccessType(Connector connect)
+        {
+            return connect.AccessType();
+        }
+    }
+
+    internal abstract class Connector
+    {
+        public abstract string AccessType();
+        public abstract bool Login(UserInformation userinfo);
+    }
+
+    internal class UserLogin : Connector
+    {
+        string AT = "";
+
+        Cryptography cg = new Cryptography();
+		OdbcDataAdapter adapter = new OdbcDataAdapter();
+		DataTable Table = new DataTable();
+
+        public override string AccessType()
+        {
+            return this.AT;
+        }
+        public override bool Login(UserInformation userinfo)
+        {
+            AT = "";
+            ClassDatabase cd = new ClassDatabase();
+            Table = new DataTable();
+            
+            cg = new Cryptography();
+            cg.SetMainPhase();
+            cg.SetEndPhase();
+
+            cd.SetConnection(new DatabaseInformation
+            {
+                Server = "db4free.net",
+                Port = "3306",
+                Database = "acepasag",
+                Username = "acepasag",
+                Password = "acepasag"
+            });
+            
+            adapter = new OdbcDataAdapter();
+            cd.SetConnectionOpen();
+            adapter = cd.GetAdapter("select * from tblUserCredentials");
+            cd.SetConnectionClose();
+
+            adapter.Fill(Table);
+
+            bool result = false;
+            if (Table.Rows.Count > 0)
+            {
+                foreach (DataRow value in Table.Rows)
+                {
+                    if (cg.Decrypt(value[1].ToString(), cg.Encrypt(userinfo.Username))
+                        && cg.Decrypt(value[2].ToString(), cg.Encrypt(userinfo.Password)))
+                    {
+                        AT = cg.Decrypt(value[3].ToString());
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
     }
 }
